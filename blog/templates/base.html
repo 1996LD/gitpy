@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    {% block title %}
+    <title>注册</title>
+    {% endblock %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/singin.css' %}" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+      <style>
+          .errorlist{
+              padding-left: 0;
+          }
+          .errorlist > li{
+              list-style: none;
+              color: red;
+              font-size: 19px;
+          }
+          .errborder{
+              border-color: red;
+              box-shadow: 0 0 5px red;
+          }
+          #id_captcha_1{
+              box-sizing: border-box;
+              height: 40px;
+              width: auto;
+              padding: 10px;
+              border: 1px lightgray solid;
+              border-radius: 4px;
+
+          }
+      </style>
+  </head>
+
+  <body>
+
+    <div class="container">
+      {% block forms %}
+
+
+      {% endblock %}
+    </div> <!-- /container -->
+
+
+    </body>
+</html>

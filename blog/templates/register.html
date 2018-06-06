@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>注册</title>
+{% endblock %}
+
+{% block forms %}
+<form class="form-signin" action="{% url 'register' %}" method="post">
+          {% csrf_token %}
+        <h2 class="form-signin-heading text-center">注册账户</h2>
+        <label for="inputEmail" class="sr-only">邮箱地址</label>
+        {# 判断form中是否含有email数据 #}
+        <input name="email" type="text" id="inputEmail" class="form-control {% if errMsg %}errborder{% endif %}" placeholder="邮箱地址" required value="{% if form.email.value %} {{ form.email.value }} {% endif %}">
+        {% if errMsg %}
+        <h4>{{ errMsg }}</h4>
+        {% endif %}
+        {{ form.email.errors }}
+        <label for="inputPassword" class="sr-only">密码</label>
+        <input name="password" type="password" id="inputPassword" class="form-control {% if error %}errborder{% endif %}" placeholder="密码" required value="{% if form.password.value %}{{ form.password.value }}{% endif %}">
+        {{ form.password.errors }}
+        <label for="rePassword" class="sr-only">确认密码</label>
+        <input name="rePassword" type="password" id="rePassword" class="form-control {% if error %}errborder{% endif %}" placeholder="确认密码" required value="{% if form.password.value %}{{ form.password.value }}{% endif %}">
+        {% if error %}
+        <h3>{{ error }}</h3>
+        {% endif %}
+        <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+
+      </form>
+     <h3 class="text-center"><a href="{% url 'login' %}">已有账号？去登陆</a></h3>
+{% endblock %}
